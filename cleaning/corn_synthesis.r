@@ -49,3 +49,44 @@ corn <- corn[, setdiff(colnames(corn), drop_cols)]
 # data. Then, we split on this for the 5 values we seek.
 #
 
+# Creating new row names for more convenient indexing
+obs_id <- c()
+for (i in 1:nrow(corn)) {
+  new_id <- paste0(corn[i, "State"], "-", corn[i, "Week.Ending"])
+  obs_id <- c(obs_id, new_id)
+}
+obs_id <- unique(obs_id)
+
+# Creating new dataframe for flattened corn data, one row per observation
+corn_flat <- unique(data.frame(corn[1:6]))
+rownames(corn_flat) <- obs_id
+
+# Fill with values form original corn dataframe, replace data NA with 0
+for (i in 1:nrow(corn)) {
+  new_id <- paste0(corn[i, "State"], "-", corn[i, "Week.Ending"])
+  data_var <- corn[i, "Data.Item"]
+  data_value <- corn[i, "Value"]
+  corn_flat[new_id, data_var] <- data_value
+}
+corn_flat[, 7:11][is.na(corn_flat[, 7:11])] <- 0
+
+# Renaming and rearranging data columns in corn_flat for readability
+colnames(corn_flat) <- c("Year", "Week", "Week.Ending",
+                         "Geo.Level", "State", "State.ANSI",
+                         "Prc.Excellent", "Prc.Fair", "Prc.Good",
+                         "Prc.Poor", "Prc.VeryPoor")
+col_order <- c(1, 2, 3, 4, 5, 6, 7, 9, 8, 10, 11)
+corn_flat <- corn_flat[col_order]
+
+# Substituting week with the actual number
+for (i in 1:nrow(corn_flat)) {
+  corn_flat[i, "Week"] <- substr(corn_flat[i, "Week"], 7, 8)
+}
+corn_flat$Week <- as.integer(corn_flat$Week)
+
+# Sort rows by row names
+corn_flat <- corn_flat[order(rownames(corn_flat)), ]
+
+
+# Save final corn_flat to synthesized .csv file
+write.csv(corn_flat, file = "data/synthesized/corn_flat.csv")
