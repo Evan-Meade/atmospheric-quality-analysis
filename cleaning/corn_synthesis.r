@@ -1,4 +1,4 @@
-# corn_synthesizer.r
+# corn_synthesis.r
 # 
 # Evan Meade, 2020
 # 
@@ -6,7 +6,7 @@
 # them into a single synthesized .csv. As noted in the README, the NASS
 # data portal only allows for 50,000 results to be returned at once,
 # which means a dataset of this size requires multiple downloads.
-#
+# 
 
 
 # First we read in each of the files as their own dataframes
@@ -28,7 +28,7 @@ corn <- rbind(corn_1, corn_2, corn_3)
 # being irrelevant to the dataset at hand. Some simply have only one
 # value. Either way, we will remove them because they are cluttering
 # up our analysis and not providing any value.
-#
+# 
 
 # Finding all columns with only one value
 drop_cols <- c()
@@ -47,7 +47,7 @@ corn <- corn[, setdiff(colnames(corn), drop_cols)]
 # Now, we would like to combine all 5 quality variables for each sample.
 # We can do this by noting that each sample has the same time and location
 # data. Then, we split on this for the 5 values we seek.
-#
+# 
 
 # Creating new row names for more convenient indexing
 obs_id <- c()
@@ -69,6 +69,13 @@ for (i in 1:nrow(corn)) {
   corn_flat[new_id, data_var] <- data_value
 }
 corn_flat[, 7:11][is.na(corn_flat[, 7:11])] <- 0
+
+
+# 
+# Now we just polish the dataframe by renaming, recasting, and
+# reordering the columns. Then, we save it to a new .csv file for
+# easy reading in the future.
+# 
 
 # Renaming and rearranging data columns in corn_flat for readability
 colnames(corn_flat) <- c("Year", "Week", "Week.Ending",
