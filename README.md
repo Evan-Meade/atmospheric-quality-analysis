@@ -32,7 +32,7 @@ In the atmospheric analysis, the EPA data was cleaned and visualized to highligh
 
 In the corn crop analysis, Evan engineered a scalar metric to describe all five quality categories at once. This metric was plotted over time for each state, showing which states under- or over-performed over time (relative to the national average).
 
-In the comparative analysis, this engineered metric was plotted against different trace gas concentrations to look for a correlation.
+In the comparative analysis, Evan plotted this engineered metric against different trace gas concentrations to look for a correlation.
 
 ## Conclusions
 
