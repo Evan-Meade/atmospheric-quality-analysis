@@ -26,8 +26,16 @@ Taking the geographical intersection of these two datasets, we reduced our datas
 
 **NOTE:** *We had to redo the file structure in order to put this repo in final submission format. Some of the code may reference file locations which have changed, but the scripts are otherwise fully functional.*
 
-To be added
+We divided analysis into three sections: atmospheric, crop, and comparative.
+
+In the atmospheric analysis, the EPA data was cleaned and visualized to highlight the differences in trace gases over time. Then, reporting locations were categorized by type, and concentration distributions plotted by environmental type.
+
+In the corn crop analysis, Evan engineered a scalar metric to describe all five quality categories at once. This metric was plotted over time for each state, showing which states under- or over-performed over time (relative to the national average).
+
+In the comparative analysis, this engineered metric was plotted against different trace gas concentrations to look for a correlation.
 
 ## Conclusions
 
-To be added
+It was visually shown that crops which overperform relative to the national average are strongly correlated with lower sulfate concentrations. This is likely connected to acid rain, since higher atmospheric sulfate concetrations lead to more acid rain, which can harm plants.
+
+This is a specific impact of environmental degradation which negatively impacts plant life. Therefore, we were able to meet our goal by demonstrating this effect using data and statistical techniques.
