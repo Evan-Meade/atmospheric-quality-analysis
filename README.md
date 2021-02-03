@@ -2,17 +2,18 @@
 Group project at UT Dallas for STAT 3355 - Data Analysis, exploring atmospheric and crop quality over time
 
 
-[Evan Meade](https://github.com/Evan-Meade), Enrique Cardenas, Jay Shah
+[**Evan Meade**](https://github.com/Evan-Meade) (Team Leader), Enrique Cardenas, Jay Shah
 
-## Data
+## Motivation
 
-Because of the diverse nature of the datasets employed by this project, we have separated our datasets into 2 directories: raw and synthesized. Raw data is datasets in their original downloaded form. Synthesized data has been cleaned, combined, and minimally pre-processed to prepare it for actual analysis
+To be added
 
-### Corn Crop Quality
+## Summary of Methods
 
-The National Agricultural Statistics Service data portal only supports returning 50,000 results at a time, so the data had to be collected in 3 separate downloads.
+**NOTE:** We had to redo the file structure in order to put this repo in final submission format. Some of the code may reference file locations which have changed, but are otherwise fully functional.
 
-* **corn_quality__excellent_fair.csv** - percentages of corn in excellent or fair condition
-* **corn_quality__good_poor.csv** - percentages of corn in good or poor condition
-* **corn_quality__verypoor.csv** - percentages of corn in very poor condition
+To be added
 
+## Conclusions
+
+To be added
